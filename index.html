@@ -72,8 +72,8 @@ canvas {
 	<body>
 		<div id="app">
 			<div class="canvas-container">
-				<canvas id="ffthist" ref="ffthist"></canvas>
-				<canvas id="fftwave" ref="fftwave"></canvas>
+				<canvas id="ffthist" ref="ffthist" v-on:click="setFreq"></canvas>
+				<canvas id="fftwave" ref="fftwave" v-on:click="setFreq"></canvas>
 				<canvas id="ffthist2" ref="ffthist2"></canvas>
 			</div>
 			<div class="right">
