@@ -1,7 +1,6 @@
 
 import { ComplexAnalyserNode } from "./lib/complex-analyser-node.js";
 import { AutoGainControlNode } from "./lib/auto-gain-control-node.js";
-//import { ComplexBandpassFilterNode } from "./lib/complex-bandpass-filter-node.js";
 import { FrequencyConverterNode } from "./lib/frequency-converter-node.js";
 import { DemodulateProtoNode } from "./lib/demodulate-proto-node.js";
 import { ComplexFirFilterNode } from "./lib/complex-fir-filter-node.js";
@@ -138,7 +137,6 @@ const app = new Vue({
 			await Promise.all([
 				AutoGainControlNode.addModule(this.audioContext),
 				ComplexAnalyserNode.addModule(this.audioContext),
-//				ComplexBandpassFilterNode.addModule(this.audioContext),
 				ComplexFirFilterNode.addModule(this.audioContext),
 				FrequencyConverterNode.addModule(this.audioContext),
 				DemodulateProtoNode.addModule(this.audioContext),
