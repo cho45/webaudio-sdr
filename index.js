@@ -66,6 +66,7 @@ const app = new Vue({
 		predicted: '',
 		snr: 0,
 		lsb: false,
+		sampleRate: null,
 		bandpass: {
 			bandwidth: "3000",
 			freq: "1700",
@@ -129,6 +130,7 @@ const app = new Vue({
 			console.log(track);
 			console.log(track.getCapabilities(), track.getConstraints(), settings);
 			console.log({sampleRate});
+			this.sampleRate = sampleRate;
 
 			this.audioContext = new AudioContext({
 				sampleRate : sampleRate
