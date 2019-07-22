@@ -171,17 +171,14 @@ const app = new Vue({
 				this.complexAnalyserNode2 = new ComplexAnalyserNode(this.audioContext, {
 					fftSize: 4096
 				});
-				this.autoGainControlNode2 = new AutoGainControlNode(this.audioContext, {});
 
 				const nodes = [
 					mediaStreamSource,
-					this.autoGainControlNode,
 					this.complexAnalyserNode,
 					this.complexBandpassFilterNode,
 					this.frequencyConverterNode,
-					this.autoGainControlNode2,
+					this.autoGainControlNode,
 					this.complexAnalyserNode2,
-					this.complexBandpassFilterNode2,
 					this.demodulateNode
 				];
 
@@ -306,16 +303,7 @@ const app = new Vue({
 					}
 				);
 			}
-			if (this.complexBandpassFilterNode2) {
-				this.complexBandpassFilterNode2.coeffs = ComplexFirFilterNode.calculateBandpassCoeffs(
-					127,
-					sampleRate,
-					-Number(20000 || this.bandpass.bandwidth),
-					+Number(20000 || this.bandpass.bandwidth),
-					function (x) {
-						return 0.54 - 0.46 * Math.cos(2 * Math.PI * x);
-					}
-				);
+			if (this.frequencyConverterNode) {
 				this.frequencyConverterNode.loFrequency.value = -Number(this.bandpass.freq);
 			}
 		},
